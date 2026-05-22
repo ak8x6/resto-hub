@@ -1,0 +1,52 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+bin/
+obj/
+
+# NuGet packages
+packages/
+*.nupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+# NuGet executable
+nuget.exe
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# SQL Server
+*.mdf
+*.ldf
+*.ndf
+
+# Upgrade logs
+UpgradeLog*.htm
+UpgradeLog*.XML
+
+# IDE
+*.pidb
+*.svclog
+*.scc
+.idea/
+*.swp
+*~
+
+# Publish output
+*.publish.xml
+publish/
