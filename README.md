@@ -277,17 +277,6 @@ erDiagram
 
 ---
 
-## 🚧 Known Limitations
-
-Tracked openly rather than left for the reader to discover:
-
-- **"Remember Me" is not wired end-to-end.** `Login.aspx.cs` mints an HMAC-SHA256 signed `AuthToken` cookie, but no request handler reads it back, so a persistent session is never restored — the 30-minute `sessionState` timeout governs session lifetime in practice. The cookie is also issued with `Secure = true`, so it is not stored at all when running over plain HTTP locally.
-- **The HMAC signing key is the database connection string.** Convenient, but incorrect key management — this should be a dedicated secret supplied through configuration.
-- **`compilation debug="true"`** remains set in `Web.config`. Correct for local development, but must be `false` before any real deployment.
-- **Minimum password length is 6 characters**, below current NIST guidance.
-
----
-
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
