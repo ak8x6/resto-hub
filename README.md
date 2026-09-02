@@ -2,7 +2,7 @@
 
 # 🍽️ Resto Hub
 
-### Full-Stack Restaurant Management System web application
+### A restaurant operations platform — customer storefront and admin control panel
 
 [![ASP.NET](https://img.shields.io/badge/ASP.NET-Web%20Forms-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
 [![C#](https://img.shields.io/badge/C%23-.NET%20Framework%204.8-239120?style=for-the-badge&logo=csharp&logoColor=white)](https://docs.microsoft.com/en-us/dotnet/csharp/)
@@ -10,7 +10,7 @@
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-A full-featured restaurant web application featuring a customer-facing storefront with menu browsing, table reservations, shopping cart, and reviews — alongside a comprehensive admin dashboard for full restaurant operations management.
+Two applications behind one login: a customer storefront for menu browsing, table reservations, cart, and reviews — and an admin control panel that runs the menu, the floor plan, the bookings, the review queue, and the user roster.
 
 </div>
 
@@ -277,6 +277,13 @@ erDiagram
 
 ---
 
+## 👤 Author
+
+**Ahmad Kassem**  
+GitHub: [@ak8x6](https://github.com/ak8x6)
+
+---
+
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
@@ -285,8 +292,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 <div align="center">
 
-**Built with ❤️ as a full-stack portfolio project**
-
-_Demonstrating ASP.NET Web Forms · C# · SQL Server · Bootstrap · Repository Pattern · Secure Authentication_
+**ASP.NET Web Forms · C# · SQL Server · Bootstrap 5 · Repository Pattern · BCrypt**
 
 </div>
