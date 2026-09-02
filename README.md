@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🍽️ RestoApp
+# 🍽️ Resto Hub
 
 ### Full-Stack Restaurant Management System web application
 
@@ -10,7 +10,7 @@
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-A production-ready restaurant web application featuring a customer-facing storefront with menu browsing, table reservations, shopping cart, and reviews — alongside a comprehensive admin dashboard for full restaurant operations management.
+A full-featured restaurant web application featuring a customer-facing storefront with menu browsing, table reservations, shopping cart, and reviews — alongside a comprehensive admin dashboard for full restaurant operations management.
 
 </div>
 
@@ -109,22 +109,21 @@ A production-ready restaurant web application featuring a customer-facing storef
 
 ## 🔒 Security
 
-- **BCrypt Password Hashing** — Industry-standard password storage with cost factor 11
-- **HMAC-SHA256 Auth Tokens** — Tamper-proof "Remember Me" cookies
-- **Email Verification** — Token-based account activation with expiry
+- **BCrypt Password Hashing** — Industry-standard password storage via BCrypt.Net-Next 4.2.0
+- **Email Verification** — Token-based account activation with a 24-hour expiry window
 - **Secure Password Reset** — Time-limited reset tokens sent via email
 - **Role-Based Authorization** — Admin pages protected with server-side role checks
-- **SQL Injection Prevention** — Parameterized queries and table name whitelisting
+- **SQL Injection Prevention** — Parameterized queries throughout, plus an explicit table-name allow-list (`UserRepository.AllowedTables`) guarding the one aggregate query that accepts a table name
 - **XSS Protection** — HTML-encoded output with `<%: %>` syntax
-- **HttpOnly Cookies** — Cookie theft prevention via `httpOnlyCookies` setting
-- **Custom Error Pages** — No stack trace leakage in production (`customErrors`)
+- **HttpOnly Cookies** — Cookie theft prevention via the `httpOnlyCookies` setting
+- **Custom Error Pages** — No stack trace leakage to remote clients (`customErrors mode="RemoteOnly"`)
 
 ---
 
 ## 📁 Project Structure
 
 ```
-RestoApp/
+RestoApp/RestoApp/          # ASP.NET web application
 ├── AdminRepo/              # Data access layer for admin operations
 │   ├── FeedbackRepository  # CRUD for feedback moderation
 │   ├── ItemRepository      # CRUD for menu items + photos
@@ -241,8 +240,8 @@ erDiagram
 1. **Clone the repository**
 
     ```bash
-    git clone https://github.com/YOUR-USERNAME/RestoApp.git
-    cd RestoApp
+    git clone https://github.com/ak8x6/resto-hub.git
+    cd resto-hub
     ```
 
 2. **Open in Visual Studio**
@@ -278,6 +277,17 @@ erDiagram
 
 ---
 
+## 🚧 Known Limitations
+
+Tracked openly rather than left for the reader to discover:
+
+- **"Remember Me" is not wired end-to-end.** `Login.aspx.cs` mints an HMAC-SHA256 signed `AuthToken` cookie, but no request handler reads it back, so a persistent session is never restored — the 30-minute `sessionState` timeout governs session lifetime in practice. The cookie is also issued with `Secure = true`, so it is not stored at all when running over plain HTTP locally.
+- **The HMAC signing key is the database connection string.** Convenient, but incorrect key management — this should be a dedicated secret supplied through configuration.
+- **`compilation debug="true"`** remains set in `Web.config`. Correct for local development, but must be `false` before any real deployment.
+- **Minimum password length is 6 characters**, below current NIST guidance.
+
+---
+
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
@@ -291,4 +301,3 @@ This project is licensed under the [MIT License](LICENSE).
 _Demonstrating ASP.NET Web Forms · C# · SQL Server · Bootstrap · Repository Pattern · Secure Authentication_
 
 </div>
-
